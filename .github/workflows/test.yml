@@ -18,8 +18,10 @@ jobs:
       env:
         SHFMT_OPTS: -i 2 -ci -s -d
     - name: Setup BATS
-      uses: mig4/setup-bats@v1
-      with:
-        bats-version: 1.2.1
+      run: |
+        git clone https://github.com/bats-core/bats-core.git
+        cd bats-core
+        ./install.sh /usr/local
+        cd ..
     - name: Test
       run: bats tests/bats/rename.bats
