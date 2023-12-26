@@ -17,3 +17,9 @@ jobs:
     - uses: luizm/action-sh-checker@v0.8.0
       env:
         SHFMT_OPTS: -i 2 -ci -s -d
+    - name: Setup BATS
+      uses: mig4/setup-bats@v1
+      with:
+        bats-version: 1.2.1
+    - name: Test
+      run: bats -r ./tests
