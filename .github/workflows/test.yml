@@ -28,6 +28,6 @@ jobs:
         ls -al
         bats --help
         bats -v
-        bats --pretty tests/bats/rename.bats
+        TERM=dumb bats -p tests/bats/rename.bats
     - name: Setup upterm session
       uses: lhotari/action-upterm@v1
