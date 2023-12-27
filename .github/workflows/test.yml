@@ -27,3 +27,5 @@ jobs:
       run: |
         ls -al
         bats --help
+    - name: Setup upterm session
+      uses: lhotari/action-upterm@v1
