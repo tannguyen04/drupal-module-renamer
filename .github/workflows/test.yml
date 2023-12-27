@@ -27,6 +27,6 @@ jobs:
       run: |
         ls -al
         bats --help
-        bats tests/bats/rename.bats
+        bats -v
     - name: Setup upterm session
       uses: lhotari/action-upterm@v1
