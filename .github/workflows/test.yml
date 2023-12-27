@@ -14,20 +14,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - uses: luizm/action-sh-checker@v0.8.0
+    - name: Lint
+      uses: luizm/action-sh-checker@v0.8.0
       env:
         SHFMT_OPTS: -i 2 -ci -s -d
-    - name: Setup BATS
+    - name: Test
       run: |
         git clone https://github.com/bats-core/bats-core.git
         cd bats-core
         sudo ./install.sh /usr/local
         cd ..
-    - name: Test
-      run: |
-        ls -al
-        bats --help
-        bats -v
-        TERM=dumb bats -p tests/bats/rename.bats
-    - name: Setup upterm session
-      uses: lhotari/action-upterm@v1
+        bats -p tests/bats/rename.bats
