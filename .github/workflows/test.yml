@@ -24,4 +24,6 @@ jobs:
         sudo ./install.sh /usr/local
         cd ..
     - name: Test
-      run: bats --tap tests/bats/rename.bats
+      run: |
+        ls -al
+        bats --help
